@@ -6,10 +6,9 @@ const Snake = (props) => {
     <div>
       {props.coords.map((coords, index) => {
         const style = {          
-          transform: `translate(${coords[0] * SQUARE_SIZE}px, ${coords[1] * SQUARE_SIZE}px) translateZ(50px)`,
-          background: props.lost ? 'red' : '',
+          transform: `translate(${coords[0] * SQUARE_SIZE}px, ${coords[1] * SQUARE_SIZE}px) translateZ(20px)`,
         };
-        return <div className="snake" id={index} style={style} key={index} />;
+        return <div className={props.lost ? 'snake lost' : 'snake'} id={index} style={style} key={index} />;
       })}
     </div>
   );

@@ -3,7 +3,7 @@ import { SQUARE_SIZE } from '../constants';
 
 const Apple = (props) => {
   const style = {
-    transform: `translate(${props.coords[0] * SQUARE_SIZE}px, ${props.coords[1] * SQUARE_SIZE}px) translateZ(50px)`
+    transform: `translate(${props.coords[0] * SQUARE_SIZE}px, ${props.coords[1] * SQUARE_SIZE}px) translateZ(20px)`
   };
 
   return <div className="apple" style={style} />;

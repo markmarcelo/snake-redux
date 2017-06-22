@@ -11295,14 +11295,6 @@ var _Board = __webpack_require__(103);
 
 var _Board2 = _interopRequireDefault(_Board);
 
-var _Snake = __webpack_require__(104);
-
-var _Snake2 = _interopRequireDefault(_Snake);
-
-var _Apple = __webpack_require__(102);
-
-var _Apple2 = _interopRequireDefault(_Apple);
-
 var _actions = __webpack_require__(101);
 
 var Actions = _interopRequireWildcard(_actions);
@@ -11438,13 +11430,15 @@ var App = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'board-wrapper' },
-          _react2.default.createElement(_Board2.default, null),
-          _react2.default.createElement(_Snake2.default, { coords: this.props.snake.coords, lost: this.props.game.lost }),
-          _react2.default.createElement(_Apple2.default, { coords: this.props.apple }),
+          _react2.default.createElement(_Board2.default, {
+            snakeCoords: this.props.snake.coords,
+            gameLost: this.props.game.lost,
+            appleCoords: this.props.apple
+          }),
           this.props.game.lost && _react2.default.createElement(
-            'button',
+            'div',
             { onClick: this.resetGame, className: 'reset' },
-            'RESET'
+            'New Game'
           )
         ),
         _react2.default.createElement(
@@ -11612,7 +11606,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Apple = function Apple(props) {
   var style = {
-    transform: 'translate(' + props.coords[0] * _constants.SQUARE_SIZE + 'px, ' + props.coords[1] * _constants.SQUARE_SIZE + 'px) translateZ(50px)'
+    transform: 'translate(' + props.coords[0] * _constants.SQUARE_SIZE + 'px, ' + props.coords[1] * _constants.SQUARE_SIZE + 'px) translateZ(20px)'
   };
 
   return _react2.default.createElement('div', { className: 'apple', style: style });
@@ -11635,11 +11629,19 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Snake = __webpack_require__(104);
+
+var _Snake2 = _interopRequireDefault(_Snake);
+
+var _Apple = __webpack_require__(102);
+
+var _Apple2 = _interopRequireDefault(_Apple);
+
 var _constants = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Board = function Board() {
+var Board = function Board(props) {
   var board = [];
   for (var x = 0; x < _constants.BOARD_WIDTH; x++) {
     board[x] = [];
@@ -11651,6 +11653,8 @@ var Board = function Board() {
   return _react2.default.createElement(
     'div',
     { className: 'board' },
+    _react2.default.createElement(_Snake2.default, { coords: props.snakeCoords, lost: props.gameLost }),
+    _react2.default.createElement(_Apple2.default, { coords: props.appleCoords }),
     board.map(function (row, rowIndex) {
       return _react2.default.createElement(
         'div',
@@ -11690,10 +11694,9 @@ var Snake = function Snake(props) {
     null,
     props.coords.map(function (coords, index) {
       var style = {
-        transform: 'translate(' + coords[0] * _constants.SQUARE_SIZE + 'px, ' + coords[1] * _constants.SQUARE_SIZE + 'px) translateZ(50px)',
-        background: props.lost ? 'red' : ''
+        transform: 'translate(' + coords[0] * _constants.SQUARE_SIZE + 'px, ' + coords[1] * _constants.SQUARE_SIZE + 'px) translateZ(20px)'
       };
-      return _react2.default.createElement('div', { className: 'snake', id: index, style: style, key: index });
+      return _react2.default.createElement('div', { className: props.lost ? 'snake lost' : 'snake', id: index, style: style, key: index });
     })
   );
 };

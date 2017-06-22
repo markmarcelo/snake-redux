@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BOARD_WIDTH, BOARD_HEIGHT, SQUARE_SIZE, INITIAL_DIRECTION, GAME_SPEED } from '../constants';
 import Board from '../components/Board';
-import Snake from '../components/Snake';
-import Apple from '../components/Apple';
 import * as Actions from '../actions';
 
 class App extends Component {
@@ -111,10 +109,12 @@ class App extends Component {
     return (
       <div>
         <div className="board-wrapper">
-          <Board />
-          <Snake coords={this.props.snake.coords} lost={this.props.game.lost} />
-          <Apple coords={this.props.apple} />
-          {this.props.game.lost && <button onClick={this.resetGame} className="reset">RESET</button>}
+          <Board
+            snakeCoords={this.props.snake.coords}
+            gameLost={this.props.game.lost}
+            appleCoords={this.props.apple}
+          />
+          {this.props.game.lost && <div onClick={this.resetGame} className="reset">New Game</div>}
         </div>
         <h3 className="score">Score: {this.props.game.score}</h3>
         <h3 className="score">High Score: {this.props.game.highScore}</h3>
