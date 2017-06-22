@@ -11393,22 +11393,35 @@ var App = function (_Component) {
         switch (e.keyCode) {
           case 37:
             // left arrow
-            if (currDirection !== 'RIGHT' && currX !== 0) _this2.nextDirection = 'LEFT';
+            if (currDirection !== 'RIGHT' && currX !== 0) {
+              e.preventDefault();
+              _this2.nextDirection = 'LEFT';
+            }
             break;
           case 39:
             // right arrow
-            if (currDirection !== 'LEFT' && currX !== _constants.BOARD_WIDTH - 1) _this2.nextDirection = 'RIGHT';
+            if (currDirection !== 'LEFT' && currX !== _constants.BOARD_WIDTH - 1) {
+              e.preventDefault();
+              _this2.nextDirection = 'RIGHT';
+            }
             break;
           case 40:
             // down arrow
-            if (currDirection !== 'UP' && currY !== _constants.BOARD_HEIGHT - 1) _this2.nextDirection = 'DOWN';
+            if (currDirection !== 'UP' && currY !== _constants.BOARD_HEIGHT - 1) {
+              e.preventDefault();
+              _this2.nextDirection = 'DOWN';
+            }
             break;
           case 38:
             // up arrow
-            if (currDirection !== 'DOWN' && currY !== 0) _this2.nextDirection = 'UP';
+            if (currDirection !== 'DOWN' && currY !== 0) {
+              e.preventDefault();
+              _this2.nextDirection = 'UP';
+            }
             break;
           case 32:
             // space
+            e.preventDefault();
             if (_this2.props.game.lost) return false;
             clearInterval(_this2.snakeInterval);
             _this2.snakeInterval = setInterval(function () {

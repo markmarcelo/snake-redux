@@ -80,18 +80,31 @@ class App extends Component {
 
       switch (e.keyCode) {
         case 37: // left arrow
-          if (currDirection !== 'RIGHT' && currX !== 0) this.nextDirection = 'LEFT';
+          if (currDirection !== 'RIGHT' && currX !== 0) {
+            e.preventDefault();
+            this.nextDirection = 'LEFT';
+          }
           break;
         case 39: // right arrow
-          if (currDirection !== 'LEFT' && currX !== BOARD_WIDTH - 1) this.nextDirection = 'RIGHT';
+          if (currDirection !== 'LEFT' && currX !== BOARD_WIDTH - 1) {
+            e.preventDefault();
+            this.nextDirection = 'RIGHT';
+          }
           break;
         case 40: // down arrow
-          if (currDirection !== 'UP' && currY !== BOARD_HEIGHT - 1) this.nextDirection = 'DOWN';
+          if (currDirection !== 'UP' && currY !== BOARD_HEIGHT - 1) {
+            e.preventDefault();
+            this.nextDirection = 'DOWN';
+          }
           break;
         case 38: // up arrow
-          if (currDirection !== 'DOWN' && currY !== 0) this.nextDirection = 'UP';
+          if (currDirection !== 'DOWN' && currY !== 0) {
+            e.preventDefault();
+            this.nextDirection = 'UP';
+          }
           break;
         case 32: // space
+          e.preventDefault();
           if (this.props.game.lost) return false;
           clearInterval(this.snakeInterval);
           this.snakeInterval = setInterval(() => {
