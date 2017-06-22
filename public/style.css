@@ -79,7 +79,7 @@ body {
 	left: 0;
 	top: 0;
   z-index: 22;
-  /*transition: transform 50ms linear;*/
+  transition: transform 100ms linear;
   transform-style: preserve-3d;
   transform: translateX(20px) translate(.1em);
 	box-shadow: 1em .5em 1.5em rgba(0, 0, 0, .3);
