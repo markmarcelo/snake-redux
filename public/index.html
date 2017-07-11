@@ -1,13 +1,24 @@
 <!doctype html>
 <html lang="en">
-	<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Snake</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<div id="app"></div>
-		<script src="bundle.js"></script>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<title>Snake</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Snake</h1>
+		<div class="container">
+			<div id="board"></div>
+		</div>
+	</div>
+	<div class="score-board">
+		<div id="score">Score: <span>0</span></div>
+		<div id="top-score">Top Score: <span>0</span></div>
+	</div>
+</body>
+<script src='Head.js'></script>
+<script src='Body.js'></script>
+<script src='Apple.js'></script>
+<script src="main.js"></script>
 </html>
