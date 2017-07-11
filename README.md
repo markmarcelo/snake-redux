@@ -2,6 +2,8 @@
 
 An implentation of the class Snake game in both React/Redux and vanilla JavaScript.
 
+### Live at: https://markmarcelo.github.io/snake-redux/
+
 ![demo](./demo.gif)
 
 ## Redux Implementation
