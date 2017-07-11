@@ -1,7 +1,7 @@
 {
   "name": "snake-redux",
   "version": "1.0.0",
-  "description": "",
+  "description": "An implementation of snake in React/Redux and Vanilla JS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
